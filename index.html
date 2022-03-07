@@ -17,12 +17,12 @@
         <span>Quarters</span> <input type="text" name="quarters" id="quarters" placeholder="0" value="0"oninput = "tally()">
     </form>
     <h2>Items</h2>
-    <button value="Soda" id="soda">Soda</button>
-    <button value="Snickers" id="Snickers" onclick="">Snickers</button>
-    <button value="Skittles" id="skittles" onclick="">Skittles</button>
-    <button value="Chips" id="chips" onclick="">Chips</button> <br>
-    <button value="Cancel" id="cancel" onclick="cancel()">Cancel</button> <br>
-    <button valua="Refill" id="refill">Refill</button>
+    <button value="Soda" id="soda" onclick="dispenseItem(0)">Soda</button>
+    <button value="Snickers" id="snickers" onclick="dispenseItem(1)" >Snickers</button>
+    <button value="Skittles" id="skittles" onclick="dispenseItem(2)">Skittles</button>
+    <button value="Chips" id="chips" onclick="dispenseItem(3)">Chips</button> <br>
+    <button value="Cancel" id="cancel" onclick="cancel()">Cancel</button> <br> <br>
+    <a href="stock.html">Refill</a>
 
     <h2>Total Entered: $ <span id="paid">0.00</span></h2>
 

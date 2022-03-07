@@ -79,3 +79,43 @@ function calculateChange() {
     }
     return tempChange.toFixed(2);
 }
+
+function dispenseItem() {
+    messageEl.innerHTML = " ";
+    change = 0;
+
+    let selectedItem = items[items];
+    change = calculateChange();
+
+    if (change < 0) {
+        msg = "You did not pay enough. $" + totalPaid.toFixed(2) + " has been returned."
+        totalPaid = 0;
+        change = 0;
+        clearForm();
+        clearTally();
+
+        messageEl.innerHTML = msg;
+    }
+    else if (change > 0) {
+        msg = selectedItem + " has been dispensed. $" + change + " has been returned";
+        totalPaid = 0;
+        change = 0;
+        clearForm();
+        clearTally();
+
+        messageEl.innerHTML = msg;   
+    }
+    else if (totalPaid = 0) {
+        msg = "Please pay to purchase an item.";
+        messageEl.innerHTML = msg;
+    }
+    else if (change == 0) {
+        msg = selectedItem + " has been dispensed."
+        totalPaid = 0;
+        change = 0;
+        clearForm();
+        clearTally();
+
+        messageEl.innerHTML = msg;
+    }
+}
