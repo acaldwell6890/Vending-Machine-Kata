@@ -1,6 +1,11 @@
 let change = 0;
 let moneyEntered = 0;
+let totalPaid = 0;
+let msg = " "
+let messageEl = document.getElementById("msg");
+let items = ["Soda", "Snickers", "Skittles", "Chips"];
 
+const itemPrice = 1.25;
 const currencyOne = 1;
 const currencyFive = 5;
 const currencyNickel = 0.05;
@@ -15,20 +20,62 @@ function getTotal() {
     let getQuarters = Number(document.getElementById("quarters").value);
 
     if (getOnes > 0) {
-        getOnes = getOnes * currencyOne
+        getOnes = getOnes * currencyOne;
     }
     if (getFives > 0) {
-        getFives = getFives * currencyFive
+        getFives = getFives * currencyFive;
     }
     if (getNickels > 0) {
-        getNickels = getNickels * currencyNickel
+        getNickels = getNickels * currencyNickel;
     }
     if (getDimes > 0) {
-        getDimes = getDimes * currencyDime
+        getDimes = getDimes * currencyDime;
     }
     if (getQuarters > 0) {
-        getQuarters = getQuarters * currencyQuarter
+        getQuarters = getQuarters * currencyQuarter;
     }
-    
+    totalPaid = getOnes + getFives + getNickels + getDimes + getQuarters
+    return totalPaid.toFixed(2)
 }
 
+function tally() {
+    moneyInserted = getTotal();
+    document.getElementById("paid").innerHTML = moneyInserted;
+}
+
+function clearTally() {
+    moneyInserted = 0;
+    document.getElementById("paid").innerHTML = moneyInserted;
+}
+
+function clearForm() {
+    document.getElementById("ones").value = 0;
+    document.getElementById("fives").value = 0;
+    document.getElementById("nickels").value = 0;
+    document.getElementById("dimes").value = 0;
+    document.getElementById("quarters").value = 0;
+}
+
+function cancel(){
+    getTotal();
+    if (totalPaid > 0) {
+        msg = "Transaction cancelled. $" + totalPaid.toFixed(2) + " hsd brrn trturned.";
+       
+        clearForm();
+        clearTally();
+        messageEl.innerHTML = msg;
+    } else if (totalPaid == 0) {
+        msg = "Insert money first. Select item."
+
+        messageEl.innerHTML = msg;
+    }
+}
+
+function calculateChange() {
+    let tempChange = 0;
+
+    if (getTotal() != 0) {
+        return (tempChange = (getTotal() - itemPrice).toFixed(2));
+    }
+    return tempChange.toFixed(2);
+}
