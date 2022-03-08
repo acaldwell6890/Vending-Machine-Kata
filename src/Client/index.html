@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+</head>
+<body>
+    <h1>Vending Machine</h1>
+
+    <form action="">
+        <span>One Dollar Bills</span> <input type="text" name="ones" id="ones" placeholder="0" value="0"oninput = "tally()"> <br>
+        <span>Five Dollar Bills</span> <input type="text" name="fives" id="fives" placeholder="0" value="0"oninput = "tally()"> <br>
+        <span>Nickels</span> <input type="text" name="nickels" id="nickels" placeholder="0" value="0"oninput = "tally()"> <br>
+        <span>Dimes</span> <input type="text" name="dimes" id="dimes" placeholder="0" value="0"oninput = "tally()"> <br>
+        <span>Quarters</span> <input type="text" name="quarters" id="quarters" placeholder="0" value="0"oninput = "tally()">
+    </form>
+    <h2>Items</h2>
+    <button value="Soda" id="soda" onclick="dispenseItem(0)">Soda</button>
+    <button value="Snickers" id="snickers" onclick="dispenseItem(1)" >Snickers</button>
+    <button value="Skittles" id="skittles" onclick="dispenseItem(2)">Skittles</button>
+    <button value="Chips" id="chips" onclick="dispenseItem(3)">Chips</button> <br>
+    <button value="Cancel" id="cancel" onclick="cancel()">Cancel</button> <br> <br>
+    <a href="stock.html">Refill</a>
+
+    <h2>Total Entered: $ <span id="paid">0.00</span></h2>
+
+    <h2 id = "msg">Insert money first. Select item.</h2>
+    <script src="index.js"></script>
+</body>
+</html>
