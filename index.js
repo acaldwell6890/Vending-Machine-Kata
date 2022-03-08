@@ -5,6 +5,18 @@ let msg = " "
 let messageEl = document.getElementById("msg");
 let items = ["Soda", "Snickers", "Skittles", "Chips"];
 
+function fillVendingMachine() {
+    let vendingMachineItems = {
+        'Soda': 10,
+        'Snickers': 5,
+        'Skittles': 5,
+        'Chips': 10
+    }
+    return vendingMachineItems
+}
+
+let store = fillVendingMachine()
+
 const itemPrice = 1.25;
 const currencyOne = 1;
 const currencyFive = 5;
@@ -59,7 +71,7 @@ function clearForm() {
 function cancel(){
     getTotal();
     if (totalPaid > 0) {
-        msg = "Transaction cancelled. $" + totalPaid.toFixed(2) + " hsd brrn trturned.";
+        msg = "Transaction cancelled. $" + totalPaid.toFixed(2) + " has been returned.";
        
         clearForm();
         clearTally();
@@ -80,11 +92,22 @@ function calculateChange() {
     return tempChange.toFixed(2);
 }
 
-function dispenseItem() {
+function updateStore(item) {
+    if(store[item] <= 0){
+        msg = "This item is out of stock"
+        messageEl.innerHTML = msg;
+    }
+    
+    store[item] -= 1
+    
+}
+
+function dispenseItem(num) {
     messageEl.innerHTML = " ";
     change = 0;
 
-    let selectedItem = items[items];
+    let selectedItem = items[num];
+
     change = calculateChange();
 
     if (change < 0) {
@@ -105,7 +128,7 @@ function dispenseItem() {
 
         messageEl.innerHTML = msg;   
     }
-    else if (totalPaid = 0) {
+    else if (totalPaid == 0) {
         msg = "Please pay to purchase an item.";
         messageEl.innerHTML = msg;
     }
@@ -117,5 +140,13 @@ function dispenseItem() {
         clearTally();
 
         messageEl.innerHTML = msg;
+        
     }
+    updateStore(items[num]) 
+    console.log(store);
+}
+
+function refill(store) {
+    return store
+    console.log(store);
 }
