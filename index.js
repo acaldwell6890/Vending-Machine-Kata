@@ -5,15 +5,15 @@ let msg = " "
 let messageEl = document.getElementById("msg");
 let items = ["Soda", "Snickers", "Skittles", "Chips"];
 
-// function fillVendingMachine() {
-//     let vendingMachineItems = {
-//         'Soda': 10,
-//         'Snickers': 5,
-//         'Skittles': 5,
-//         'Chips': 10
-//     }
-//     return vendingMachineItems
-// }
+function fillVendingMachine() {
+    let vendingMachineItems = {
+        'Soda': 10,
+        'Snickers': 5,
+        'Skittles': 5,
+        'Chips': 10
+    }
+    return vendingMachineItems
+}
 
 
 
